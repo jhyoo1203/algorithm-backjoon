@@ -13,15 +13,20 @@ public class Main {
             cardMap.merge(key, 1, Integer::sum);
         }
 
-        int maxCount = cardMap.values().stream()
-                .max(Integer::compare)
-                .orElse(0);
+        int maxCount = 0;
+        long result = 0L;
 
-        long result = cardMap.entrySet().stream()
-                .filter(entry -> entry.getValue() == maxCount)
-                .map(Map.Entry::getKey)
-                .min(Long::compare)
-                .orElse(0L);
+        for (Map.Entry<Long, Integer> entry : cardMap.entrySet()) {
+            long key = entry.getKey();
+            int count = entry.getValue();
+
+            if (count > maxCount) {
+                maxCount = count;
+                result = key;
+            } else if (count == maxCount && key < result) {
+                result = key;
+            }
+        }
 
         System.out.println(result);
     }
