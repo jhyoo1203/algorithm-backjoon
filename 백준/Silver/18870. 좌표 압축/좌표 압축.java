@@ -4,7 +4,7 @@ import java.util.stream.*;
 
 public class Main {
 
-    public static final String SPACE = " ";
+    private static final String SPACE = " ";
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,7 +13,7 @@ public class Main {
 
         List<Integer> coordinates = new ArrayList<>();
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine(), SPACE);
         for(int i = 0; i < N; i++) {
             coordinates.add(Integer.parseInt(st.nextToken()));
         }
