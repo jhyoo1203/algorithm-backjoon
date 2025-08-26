@@ -1,4 +1,5 @@
-import java.util.*
+import java.util.Collections
+import java.util.PriorityQueue
 
 fun main() = with(System.`in`.bufferedReader()) {
     val n = readLine().toInt()
@@ -10,10 +11,9 @@ fun main() = with(System.`in`.bufferedReader()) {
             .forEach(pq::add)
     }
 
-    val stack = Stack<Int>()
-    repeat(n) {
-        stack.add(pq.poll())
+    repeat(n - 1) {
+        pq.poll()
     }
 
-    println(stack.pop())
+    println(pq.poll())
 }
