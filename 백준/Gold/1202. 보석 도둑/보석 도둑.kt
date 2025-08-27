@@ -7,23 +7,22 @@ fun main() = with(System.`in`.bufferedReader()) {
     val n = st.nextToken().toInt()
     val k = st.nextToken().toInt()
 
-    val jewels = PriorityQueue<Pair<Int, Int>>(compareBy({ it.first }, { it.second }))
+    val jewels = PriorityQueue<Pair<Int, Int>>(compareBy { it.first })
     repeat(n) {
         st = StringTokenizer(readLine())
         jewels.add(Pair(st.nextToken().toInt(), st.nextToken().toInt()))
     }
 
-    val bags = PriorityQueue<Int>()
-    repeat(k) {
-        bags.add(readLine().toInt())
+    val bags = IntArray(k)
+    repeat(k) { i ->
+        bags[i] = readLine().toInt()
     }
+    bags.sort()
 
     val price = PriorityQueue<Int>(Collections.reverseOrder())
     var result = 0L
 
-    while(bags.isNotEmpty()) {
-        val bag = bags.poll()
-
+    for (bag in bags) {
         while (jewels.isNotEmpty()) {
             if (jewels.peek().first <= bag) {
                 price.add(jewels.poll().second)
