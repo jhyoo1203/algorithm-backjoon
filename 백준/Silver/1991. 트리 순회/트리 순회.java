@@ -31,7 +31,7 @@ public class Main {
     }
 
     // 전위 순회: 루트 → 왼쪽 → 오른쪽
-    static void preorder(char node) {
+    private static void preorder(char node) {
         if (node == '.') return;
 
         sb.append(node);
@@ -40,7 +40,7 @@ public class Main {
     }
 
     // 중위 순회: 왼쪽 → 루트 → 오른쪽
-    static void inorder(char node) {
+    private static void inorder(char node) {
         if (node == '.') return;
 
         inorder(tree[node - 'A'][0]);
@@ -49,7 +49,7 @@ public class Main {
     }
 
     // 후위 순회: 왼쪽 → 오른쪽 → 루트
-    static void postorder(char node) {
+    private static void postorder(char node) {
         if (node == '.') return;
 
         postorder(tree[node - 'A'][0]);
