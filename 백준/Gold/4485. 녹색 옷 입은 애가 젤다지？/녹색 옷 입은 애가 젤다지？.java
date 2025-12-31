@@ -69,6 +69,10 @@ public class Main {
                 return current.cost;
             }
 
+            if (current.cost > dist[current.x][current.y]) {
+                continue;
+            }
+
             for (int i = 0; i < 4; i++) {
                 int nx = current.x + dx[i];
                 int ny = current.y + dy[i];
